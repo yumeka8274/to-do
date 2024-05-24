@@ -21,6 +21,34 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Tailwind css 環境構築
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+
+tailwind.config.jsファイルに下記のコードをコピー
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+resources/css/app.cssに以下のコードを追加
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
