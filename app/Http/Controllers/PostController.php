@@ -19,13 +19,31 @@ class PostController extends Controller
         return view('posts.post', compact('user'));
     }
 
+
+
+
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $imagePath = null;
+
+        if($request->hasFile('image')){
+            $filename = $request->file('image')->getClientOriginalName();
+            $imagePath =$request->file('image')->storeAs('public/images', $filename);
+        }
         Posts::create([
             'user_id' => Auth::id(),
             'title' => $request->title,
             'body' => $request->body,
+            'image_at' => $imagePath,
         ]);
+        
 
         return redirect()->route('posts.index')->with('success', 'レビューが作成されました');
 
