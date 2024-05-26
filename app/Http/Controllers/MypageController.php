@@ -32,7 +32,7 @@ class MypageController extends Controller
     public function show($id)
     {
         $post = Posts::find($id);
-        dd($post);
+        // dd($post);
 
         return view('posts.show' ,['post'=>$post]);
 
