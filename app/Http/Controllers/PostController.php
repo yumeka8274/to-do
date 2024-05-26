@@ -47,7 +47,20 @@ class PostController extends Controller
         
 
         return redirect()->route('posts.index')->with('success', 'レビューが作成されました');
+    }
 
+    function mypage($id)
+    {
+        $post = Posts::find($id);
 
-}    
+        return view('post.mypage' ,['post'=>$post]);
+    }
+    
+    function show($id)
+    {
+        // dd($id);
+        $post = Posts::find($id);
+        return view('posts.show' ,['post'=>$post]);
+    }
+    
 }
