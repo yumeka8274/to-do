@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Posts;
 
+
 class PostController extends Controller
 {
     public function __construct()
@@ -49,5 +50,5 @@ class PostController extends Controller
 
 
     }
-  
+    
 }
