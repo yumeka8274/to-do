@@ -49,6 +49,5 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success', 'レビューが作成されました');
 
 
-    }
-    
+}    
 }

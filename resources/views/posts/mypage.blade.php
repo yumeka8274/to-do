@@ -11,14 +11,19 @@
       <div class="p-4 md:w-1/3">
         <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
           <!--閉じるボタン-->
-          {{-- <a href="{{ ここに記載する(yumeka) }}"> --}}
+          {{-- <a href="{{ route('posts.',$post->id) }}" class="btn btn-primary"> --}}
             <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+              <form action="{{ route('posts.destroy',$post->id) }}" method='post'>
+              @csrf
+              @method('delete')
+              <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+            </form>
               <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
               </svg>
               <span class="sr-only">Close modal</span>
             </button>
-          {{-- </a> --}}
+          </a>
 
           <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{ Storage::url($post->image_at)}}" alt="blog">
           <div class="p-6">
