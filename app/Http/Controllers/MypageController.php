@@ -28,4 +28,16 @@ class MypageController extends Controller
         
         return view('posts.mypage',['posts'=>$posts]);
     }
+
+    public function show($id)
+    {
+        $post = Posts::find($id);
+        dd($post);
+
+        return view('posts.show' ,['post'=>$post]);
+
+    
+    
+    return view('posts.show');
+    }
 }
