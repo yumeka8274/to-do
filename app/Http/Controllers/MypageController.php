@@ -35,9 +35,5 @@ class MypageController extends Controller
         // dd($post);
 
         return view('posts.show' ,['post'=>$post]);
-
-    
-    
-    return view('posts.show');
     }
 }

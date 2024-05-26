@@ -30,5 +30,5 @@ Route::post('/posts/post', [App\Http\Controllers\PostController::class,'store'])
 
 Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
 
-Route::get('/posts/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
+Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
 
