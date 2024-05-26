@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\Posts;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,4 +34,4 @@ Route::post('/posts/post', [App\Http\Controllers\PostController::class,'store'])
 
 Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
 
-//新しいルート情報を入力(yumeka) :メソッドはdestroyを使用
+Route::delete('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'destroy'])->name('posts.destroy');

@@ -28,4 +28,16 @@ class MypageController extends Controller
         
         return view('posts.mypage',['posts'=>$posts]);
     }
+
+
+
+    function destroy($id)
+    {
+        $post = Posts::find($id);
+        $post -> delete();
+        return redirect()->route('posts.mypage');
+    }
 }
+
+
+
