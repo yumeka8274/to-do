@@ -39,3 +39,7 @@ Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'s
 
 Route::delete('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'destroy'])->name('posts.destroy');
 
+// Route::get('/posts/mypage/{id}', function () {
+//     return view('welcome');
+// });
+
