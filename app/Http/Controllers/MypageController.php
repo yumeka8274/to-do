@@ -20,10 +20,6 @@ class MypageController extends Controller
 
         $user = Auth::user();
         $posts = Posts::all();
-        // $mypage = MypageController::user();
-        // if($user-> == $mypage){
-        //     return view('posts.mypage',['posts'=>$mypage]);
-        // }    
         $posts = Posts::where('user_id', $user->id)->get();
         
         return view('posts.mypage',['posts'=>$posts]);
@@ -43,8 +39,6 @@ class MypageController extends Controller
         $post -> delete();
         return redirect()->route('posts.mypage');
     }
-
- 
     //画像の編集機能
     public function edit($id)
     {
