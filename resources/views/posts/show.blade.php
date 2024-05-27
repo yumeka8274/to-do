@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('content')
 
@@ -6,6 +6,7 @@
             <div class="container px-5 py-24 mx-auto flex flex-wrap">
                 <div class="p-4 md:w-1/2 h-1/2 " >
                 
+
                 
                 <img class="lg:h-1000 md:h-100 w-full object-cover object-center" src="{{ Storage::url($post->image_at)}}" alt="blog">
             </div>
@@ -27,12 +28,28 @@
                             @method('delete')
                             <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("ページを本当に削除しますか？");'>
                         </form>
+                        
+                        <a href="{{ route('posts.edit', ['id' => $post->id]) }}">
+                    <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded ml-8">編集する</button>
+                　　　　　　　　　　　　　　　　</a>
                     </div>
                 </div>
                 </div>
                 </div>
+=======
+
+=======
+            
+            
+             
                 
-                </div>
+
+
+
+                
+
+                
+         
             </div>
             </div>
         </section>

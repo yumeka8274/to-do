@@ -37,7 +37,13 @@ Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'
 
 Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
 
+//削除機能
 Route::delete('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'destroy'])->name('posts.destroy');
+
+//投稿の編集機能
+Route::get('/edit/{id}',[App\Http\Controllers\MypageController::class,'edit'])->name('posts.edit');
+
+Route::post('/update/{id}', [App\Http\Controllers\MypageController::class,'update'])->name('posts.update');
 
 // Route::get('/posts/mypage/{id}', function () {
 //     return view('welcome');

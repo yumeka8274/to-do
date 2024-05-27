@@ -43,6 +43,27 @@ class MypageController extends Controller
         $post -> delete();
         return redirect()->route('posts.mypage');
     }
+
+ 
+    //画像の編集機能
+    public function edit($id)
+    {
+        $user = Auth::user();
+        $post = Posts::find($id);
+
+        return view('posts.edit', compact('post','user'));
+    }
+
+    //画像の更新
+    public function update(Request $request, $id)
+    {
+        
+        $post = Posts::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+        return redirect()->route('posts.mypage');
+    }
 }
 
 
