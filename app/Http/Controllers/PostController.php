@@ -29,10 +29,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string',
-            
-        ]);
 
-        
         if($request->hasFile('image')){
             $filename = $request->file('image')->getClientOriginalName();
             $imagePath =$request->file('image')->storeAs('public/images', $filename);

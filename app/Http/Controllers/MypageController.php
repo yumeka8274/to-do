@@ -20,9 +20,10 @@ class MypageController extends Controller
     {
 
         $user = Auth::user();
+
         $folders = Folder::all(); 
         $folders = Folder::where('user_id', $user->id)->get();
-        
+
         return view('folder.mypage',['folders'=>$folders]);
     }
     public function show($id)
@@ -40,8 +41,6 @@ class MypageController extends Controller
         $post -> delete();
         return redirect()->route('posts.mypage');
     }
-
- 
     //画像の編集機能
     public function edit($id)
     {
