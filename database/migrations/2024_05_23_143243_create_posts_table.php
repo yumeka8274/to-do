@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('body');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('folder_id')->constrained('folders');
+            // $table->timestamp('deadline');
+            // $table->flag();
             $table->timestamps();
         });
     }

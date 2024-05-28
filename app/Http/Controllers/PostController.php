@@ -32,6 +32,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string',
+            'flag' => 'required|boolean',  
+
 
         ]);
         Posts::create([
@@ -39,7 +41,8 @@ class PostController extends Controller
             'folder_id' => $request->folder_id,
             'title' => $request->title,
             'body' => $request->body,
-            
+            'deadline' => $request->deadline,
+            'flag' => (bool) $request->flag,
         ]);
         
         
