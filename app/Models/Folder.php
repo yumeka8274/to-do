@@ -12,4 +12,9 @@ class Folder extends Model
     protected $fillable = [
         'user_id', 'title', 'image_at', 
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Posts::class);
+    }
 }

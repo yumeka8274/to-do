@@ -49,7 +49,7 @@ Route::get('/folder/mypage',[App\Http\Controllers\MypageController::class,'index
 
 // Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
 
-
+//投稿の詳細画面表示
 Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
 
 //削除機能

@@ -13,5 +13,10 @@ class Posts extends Model
         'user_id', 'title', 'body',
     ];
 
+    public function folder()
+    {
+        return $this->belongsTo(Folder::class);
+    }
+
 
 }

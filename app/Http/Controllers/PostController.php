@@ -30,10 +30,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'body' => 'required|string',
 
-        if($request->hasFile('image')){
-            $filename = $request->file('image')->getClientOriginalName();
-            $imagePath =$request->file('image')->storeAs('public/images', $filename);
-        }
+        ]);
         Posts::create([
             'user_id' => Auth::id(),
             'title' => $request->title,

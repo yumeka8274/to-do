@@ -46,8 +46,11 @@ class FolderController extends Controller
 
     public function show($id)
     {
-        $post = Posts::find($id);
-        dd($post);
-        return view('folder.show', ['post' => $post]);
+        $folder = Folder::with('posts')->find($id);
+
+        return view('folder.show', ['folder' => $folder, 'posts' => $folder->posts]);
     }
+
+
 }
+
