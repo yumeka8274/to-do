@@ -30,7 +30,11 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'body' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+
+
+
         ]);
+
 
         $imagePath = null;
 
