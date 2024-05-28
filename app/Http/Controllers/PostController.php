@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Posts;
+use App\Models\Folder;
 
 
 class PostController extends Controller
@@ -16,8 +17,10 @@ class PostController extends Controller
 
     public function index()
     {
+
         $user = Auth::user();
-        return view('posts.post', compact('user'));
+        $folders = Folder::all();
+        return view('posts.post', compact('user', 'folders'));
     }
 
 
@@ -33,13 +36,15 @@ class PostController extends Controller
         ]);
         Posts::create([
             'user_id' => Auth::id(),
+            'folder_id' => $request->folder_id,
             'title' => $request->title,
             'body' => $request->body,
             
         ]);
         
+        
 
-        return redirect()->route('posts.index')->with('success', 'レビューが作成されました');
+        return redirect()->route('posts.mypage')->with('success', 'レビューが作成されました');
     }
 
     function mypage($id)

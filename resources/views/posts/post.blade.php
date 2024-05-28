@@ -74,9 +74,18 @@
           <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 
             
+            
+            <div class="flex flex-col mb-4">
+              <label class="leading-loose">フォルダ名</label>
+              <select name="folder_id" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
+                  @foreach($folders as $folder)
+                      <option value="{{ $folder->id }}">{{ $folder->title }}</option>
+                  @endforeach
+              </select>
+            </div>
 
             <div class="flex flex-col">
-              <label class="leading-loose">お名前</label>
+              <label class="leading-loose">名前</label>
               <div  class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Event title">{{ $user->name }}</div>
             </div>
 
