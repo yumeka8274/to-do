@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\FolderController;
 use App\Http\Controllers\Posts;
+
 
 
 
@@ -28,11 +30,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/posts/post', [App\Http\Controllers\PostController::class, 'index'])->name('posts.post');
 
+//todoリストの投稿機能
 Route::post('/posts/post', [App\Http\Controllers\PostController::class,'store'])->name('posts.store');
+//フォルダの作成機能
+Route::get('/folder/post', [App\Http\Controllers\FolderController::class, 'index'])->name('folders.post');
+Route::post('/folder/post', [App\Http\Controllers\FolderController::class,'store'])->name('folders.store');
+
+
+//フォルダ内の詳細表示
+Route::get('/folder/mypage/{id}',[App\Http\Controllers\FolderController::class,'show'])->name('folder.show');
+
+
+//マイページ画像
+Route::get('/folder/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
+
 
 // Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
 
-Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
+// Route::get('/posts/mypage',[App\Http\Controllers\MypageController::class,'index'])->name('posts.mypage');
 
 
 Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
