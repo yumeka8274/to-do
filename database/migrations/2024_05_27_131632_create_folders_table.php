@@ -11,22 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('folders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->string('title');
-            $table->text('body');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('folder_id')->constrainde('folders');
+            $table->text('image_at')->nullable();
             $table->timestamps();
         });
     }
 
-    
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('folders');
     }
 };

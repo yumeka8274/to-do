@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Posts;
+use App\Models\Folder;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -19,10 +20,11 @@ class MypageController extends Controller
     {
 
         $user = Auth::user();
-        $posts = Posts::all();
-        $posts = Posts::where('user_id', $user->id)->get();
-        
-        return view('posts.mypage',['posts'=>$posts]);
+
+        $folders = Folder::all(); 
+        $folders = Folder::where('user_id', $user->id)->get();
+
+        return view('folder.mypage',['folders'=>$folders]);
     }
     public function show($id)
     {
