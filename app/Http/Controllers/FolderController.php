@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Posts;
 use App\Models\Folder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Previous;
+use Illuminate\Http\Action;
+
+
 
 class FolderController extends Controller
 {
@@ -59,6 +63,19 @@ class FolderController extends Controller
         return redirect()->route('posts.mypage');
     }
 
+    // public function show($id)
+    // $action = $request->get('action', 'back');
+    // $input = $request->except('action');
+
+    // if($action == 'back') {
+    //     return redirect()->route('folder.show');
+    // }
+
+    public function index()
+{
+
+    return view->route('posts.show.back');
+}
 
 }
 
