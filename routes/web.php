@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\Posts;
 
 
@@ -73,3 +74,8 @@ Route::get('/calender', function () {
 })->name('calender.index');
 //カレンダーにtodoを追加するルート情報
 Route::get('/events', [EventController::class, 'index']);
+
+//チェックボックスの値の変更
+Route::patch('/posts/{id}/flag', [PostController::class, 'updateFlag'])->name('posts.updateFlag');
+
+Route::get('task/index', [TaskListController::class, 'index'])->name('task.index');

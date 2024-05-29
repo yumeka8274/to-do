@@ -19,6 +19,7 @@ class PostController extends Controller
     {
 
         $user = Auth::user();
+        
         $folders = Folder::all();
         return view('posts.post', compact('user', 'folders'));
     }
@@ -62,6 +63,18 @@ class PostController extends Controller
         // dd($id);
         $post = Posts::find($id);
         return view('posts.show' ,['post'=>$post]);
+    }
+
+    public function updateFlag(Request $request, $id)
+    {
+        $post = Posts::find($id);
+        if ($post){
+            $post->flag = $request->input('flag', false);
+            $post->save();
+            return response()->json(['message' => 'Flag updated successfully.']);
+        }else {
+            return response()->json(['error' => 'Failed to update flag.'], 500);
+        }
     }
     
 
