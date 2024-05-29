@@ -24,7 +24,7 @@ class MypageController extends Controller
         $folders = Folder::all(); 
         $folders = Folder::where('user_id', $user->id)->get();
 
-        return view('folder.mypage',['folders'=>$folders]);
+        return view('folder.mypage',['folders'=>$folders, 'user' => $user,]);
     }
     public function show($id)
     {
