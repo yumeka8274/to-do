@@ -41,6 +41,7 @@ class MypageController extends Controller
         $post -> delete();
         return redirect()->route('posts.mypage');
     }
+    
     //画像の編集機能
     public function edit($id)
     {

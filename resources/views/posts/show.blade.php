@@ -28,7 +28,6 @@
                         <form action="{{ route('posts.destroy',$post->id) }}" method='post'>
                             @csrf
                             @method('delete')
-                            {{-- <input type='submit' value='削 除' class="btn btn-danger" onclick='return confirm("ページを本当に削除しますか？");'> --}}
                             <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded ml-8 mb-5" onclick='return confirm("ページを本当に削除しますか？");'>削除する</button>
                         </form>
                         

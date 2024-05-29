@@ -17,8 +17,10 @@
         </button>
       </a>
     </div>
+    
+    
     <div class="flex flex-wrap -m-4">
-      @foreach($folders as $folder)
+      @foreach($folders as $folder）
       <div class="p-4 w-full sm:w-1/2 md:w-1/3">
         <a href="{{ route('folder.show', $folder['id'] ) }}">
           <div class="relative overflow-hidden shadow-lg rounded-lg" style="padding-top: 100%;">
@@ -28,7 +30,22 @@
                 <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">{{ $folder->title }}</h2>
                 <h1 class="title-font text-lg font-medium text-black mb-3">{{ $folder->title }}</h1>
                 {{-- <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p> --}}
+                
+                 <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white " data-modal-hide="authentication-modal">
+              <form action="{{ route('folder.destroy',$folder->id) }}" method='post'>
+                @csrf
+                @method('delete')
+                <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("中にある全てのリストを含めたファイルのすべてが削除されますがよろしいですか？");'>
+              </form>
+              </button>
+              
+               <!-- 編集ボタン -->
+              <a href="{{ route('posts.edit', ['id' => $folder->id]) }}">
+                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded " style="font-size: 9px; m1-1 mb-1">編集する</button>
+              </a>
+                
               </div>
+
             </div>
           </div>
         </a>
