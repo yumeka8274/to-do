@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\FolderController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\Posts;
 
 
@@ -65,3 +66,10 @@ Route::post('/update/{id}', [App\Http\Controllers\MypageController::class,'updat
 //     return view('welcome');
 // });
 
+
+//カレンダーの表示
+Route::get('/calender', function () {
+    return view('calender.index');
+})->name('calender.index');
+//カレンダーにtodoを追加するルート情報
+Route::get('/events', [EventController::class, 'index']);
