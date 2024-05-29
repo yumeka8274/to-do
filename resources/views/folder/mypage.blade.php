@@ -33,13 +33,12 @@
               <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">{{ $folder->title }}</h2>
               <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $folder->title }}</h1>
               <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-     
 
               <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white " data-modal-hide="authentication-modal">
               <form action="{{ route('folder.destroy',$folder->id) }}" method='post'>
                 @csrf
                 @method('delete')
-                <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("フォルダごと削除されますがよろしいですか？");'>
+                <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("中にある全てのリストを含めたファイルのすべてが削除されますがよろしいですか？");'>
               </form>
               </button>
 
