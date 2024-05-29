@@ -54,6 +54,7 @@ Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'s
 
 //削除機能
 Route::delete('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'destroy'])->name('posts.destroy');
+Route::delete('/posts/folder/{id}',[App\Http\Controllers\FolderController::class,'destroy'])->name('folder.destroy');
 
 //投稿の編集機能
 Route::get('/edit/{id}',[App\Http\Controllers\MypageController::class,'edit'])->name('posts.edit');

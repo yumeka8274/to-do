@@ -51,6 +51,14 @@ class FolderController extends Controller
         return view('folder.show', ['folder' => $folder, 'posts' => $folder->posts]);
     }
 
+    public function destroy($id)
+    {
+        $folder = Folder::find($id);
+        $folder -> delete();
+
+        return redirect()->route('posts.mypage');
+    }
+
 
 }
 

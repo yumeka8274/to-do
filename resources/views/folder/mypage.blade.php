@@ -23,6 +23,9 @@
 
       @foreach($folders as $folder)
       <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="absolute bottom-4 right-8 mb-20 mr-24"> <!-- mr-2に変更、mb-0に変更 -->
+        </div>
+
         <a href="{{ route('folder.show', $folder['id'] ) }}">
           <div class="flex relative">
             <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="{{ Storage::url($folder->image_at) }}">
@@ -30,6 +33,21 @@
               <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">{{ $folder->title }}</h2>
               <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $folder->title }}</h1>
               <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+     
+
+              <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white " data-modal-hide="authentication-modal">
+              <form action="{{ route('folder.destroy',$folder->id) }}" method='post'>
+                @csrf
+                @method('delete')
+                <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("フォルダごと削除されますがよろしいですか？");'>
+              </form>
+              </button>
+
+              <!-- 編集ボタン -->
+              <a href="{{ route('posts.edit', ['id' => $folder->id]) }}">
+                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded " style="font-size: 9px; m1-1 mb-1">編集する</button>
+              </a>
+
             </div>
           </div>
         </div>
