@@ -31,7 +31,7 @@
                 <h1 class="title-font text-lg font-medium text-black mb-3">{{ $folder->title }}</h1>
                 {{-- <p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p> --}}
                 
-                 <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white " data-modal-hide="authentication-modal">
+                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white " data-modal-hide="authentication-modal">
               <form action="{{ route('folder.destroy',$folder->id) }}" method='post'>
                 @csrf
                 @method('delete')
@@ -39,11 +39,11 @@
               </form>
               </button>
               
-               <!-- 編集ボタン -->
-              <a href="{{ route('posts.edit', ['id' => $folder->id]) }}">
+              <!-- 編集ボタン -->
+              <a href="{{ route('folder.edit', ['id' => $folder->id]) }}">
                 <button class="flex ml-auto text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded " style="font-size: 9px; m1-1 mb-1">編集する</button>
               </a>
-                
+              
               </div>
 
             </div>

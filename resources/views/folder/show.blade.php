@@ -8,7 +8,7 @@
     {{-- このforeach文はpostsというたくさんのpostをまとめたところから一つのpostを取り出すという意味 --}}
       <div class="py-8 flex flex-wrap md:flex-nowrap relative"> 
         <div class="absolute top-0 left-0 flex space-x-2 p-2"> 
-         
+        
         
         </div> 
         <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">

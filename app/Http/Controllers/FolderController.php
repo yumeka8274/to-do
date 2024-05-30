@@ -58,7 +58,30 @@ class FolderController extends Controller
 
         return redirect()->route('posts.mypage');
     }
+    public function edit($id)
+    {
+
+        $user = Auth::user();
+        $folder = Folder::with('posts')->find($id);
 
 
+
+        return view('folder.edit',[ 'user' => $user, 'folder' => $folder ] );
+    }
+
+
+    function update(Request $request, $id)
+    {
+
+        $request->validate([
+           
+        ]);
+    
+        $folder = Folder::find($id);
+        $folder->title = $request->input('title');
+        $folder->save();
+        
+        return redirect()->route('posts.mypage');
+    }
 }
 

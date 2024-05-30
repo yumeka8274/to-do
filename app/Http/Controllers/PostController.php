@@ -62,7 +62,10 @@ class PostController extends Controller
         // dd($id);
         $post = Posts::find($id);
         return view('posts.show' ,['post'=>$post]);
+        $post = Posts::find($id);
+        return view('posts.user' ,['post'=>$post]);
     }
+
     
 
 
