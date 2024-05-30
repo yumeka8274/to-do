@@ -54,6 +54,12 @@ Route::get('/folder/mypage',[App\Http\Controllers\MypageController::class,'index
 //投稿の詳細画面表示
 Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
 
+
+// Route::get('/posts/mypage/{id}', function() {
+//     // 保存した引数を付加してリダイレクトする
+//     return redirectWithRestoredParams("posts.show");
+// })->name('posts.show.back');
+
 //削除機能
 Route::delete('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'destroy'])->name('posts.destroy');
 Route::delete('/posts/folder/{id}',[App\Http\Controllers\FolderController::class,'destroy'])->name('folder.destroy');
