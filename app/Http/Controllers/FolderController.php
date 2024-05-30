@@ -71,11 +71,9 @@ class FolderController extends Controller
     //     return redirect()->route('folder.show');
     // }
 
-    public function index()
-{
-
-    return view->route('posts.show.back');
-}
+    // public function back() {
+    //     return back()->with('folder.show');
+    // }
 
 }
 
