@@ -17,6 +17,19 @@
             
           </div>
         </div>
+
+
+        @if($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach($errors->all() as $error)
+            <li class="text-red-600">{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
+        
         <div class="divide-y divide-gray-200">
           <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
 
