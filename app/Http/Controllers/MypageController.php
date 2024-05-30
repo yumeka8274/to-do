@@ -54,6 +54,13 @@ class MypageController extends Controller
     //画像の更新
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+            // 'flag' => 'required|boolean',  
+
+        ]);
         
         $post = Posts::find($id);
         $post->title = $request->input('title');

@@ -37,6 +37,8 @@ class PostController extends Controller
 
 
         ]);
+
+
         Posts::create([
             'user_id' => Auth::id(),
             'folder_id' => $request->folder_id,
