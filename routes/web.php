@@ -35,6 +35,7 @@ Route::get('/posts/post', [App\Http\Controllers\PostController::class, 'index'])
 
 //todoリストの投稿機能
 Route::post('/posts/post', [App\Http\Controllers\PostController::class,'store'])->name('posts.store');
+
 //フォルダの作成機能
 Route::get('/folder/post', [App\Http\Controllers\FolderController::class, 'index'])->name('folders.post');
 Route::post('/folder/post', [App\Http\Controllers\FolderController::class,'store'])->name('folders.store');
@@ -68,7 +69,13 @@ Route::delete('/posts/folder/{id}',[App\Http\Controllers\FolderController::class
 //投稿の編集機能
 Route::get('/edit/{id}',[App\Http\Controllers\MypageController::class,'edit'])->name('posts.edit');
 
+//フォルダの編集機能
+Route::get('/edit/folder/{id}',[App\Http\Controllers\FolderController::class,'edit'])->name('folder.edit');
+Route::post('/folder/update/{id}',[App\Http\Controllers\FolderController::class,'update'])->name('folder.update');
+
 Route::post('/update/{id}', [App\Http\Controllers\MypageController::class,'update'])->name('posts.update');
+
+
 
 // Route::get('/posts/mypage/{id}', function () {
 //     return view('welcome');

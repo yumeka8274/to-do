@@ -62,6 +62,11 @@ class FolderController extends Controller
 
         return redirect()->route('posts.mypage');
     }
+    public function edit($id)
+    {
+
+        $user = Auth::user();
+        $folder = Folder::with('posts')->find($id);
 
     // public function show($id)
     // $action = $request->get('action', 'back');
@@ -75,5 +80,23 @@ class FolderController extends Controller
     //     return back()->with('folder.show');
     // }
 
+
+        return view('folder.edit',[ 'user' => $user, 'folder' => $folder ] );
+    }
+
+
+    function update(Request $request, $id)
+    {
+
+        $request->validate([
+           
+        ]);
+    
+        $folder = Folder::find($id);
+        $folder->title = $request->input('title');
+        $folder->save();
+        
+        return redirect()->route('posts.mypage');
+    }
 }
 
