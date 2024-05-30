@@ -7,6 +7,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\Posts;
+use App\Http\Controllers\GoogleCalendarController;
 
 
 
@@ -80,6 +81,9 @@ Route::get('/calender', function () {
 })->name('calender.index');
 //カレンダーにtodoを追加するルート情報
 Route::get('/events', [EventController::class, 'index']);
+
+Route::get('google/redirect', [GoogleCalendarController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('google/callback', [GoogleCalendarController::class, 'handleGoogleCallback'])->name('google.callback');
 
 //チェックボックスの値の変更
 Route::patch('/posts/{id}/flag', [PostController::class, 'updateFlag'])->name('posts.updateFlag');

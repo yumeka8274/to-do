@@ -48,6 +48,9 @@ class PostController extends Controller
             'flag' => (bool) $request->flag,
         ]);
         
+
+
+     
         
 
         return redirect()->route('posts.mypage')->with('success', 'レビューが作成されました');
