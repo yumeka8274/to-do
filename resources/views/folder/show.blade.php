@@ -21,6 +21,16 @@
         </div>
         <div class="created-time text-small px-10 py- text-gray-400">{{ $folder->created_at->format('Y年m月d日') }}</div>
 
+        <form action="{{ route('posts.updateFlag', $post->id) }}" method="POST">
+          @csrf
+          @method('PATCH')
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" name="flag" value="" class="sr-only peer" onchange="updateFlag({{ $post->id }}, this.checked)" {{ $post->flag ? 'checked' : '' }} >
+            <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">完了</span>
+          </label>
+        </form>
+
 
 
         <a href="{{ route('posts.edit', ['id' => $folder->id]) }}">
@@ -39,7 +49,7 @@
   </div>
 </section>
 
-<style>
+{{-- <style>
   .relative {
     position: relative; 
   }
@@ -57,6 +67,30 @@
   .space-x-2 > * + * {
     margin-left: 0.5rem; 
   }
-</style>
+</style> --}}
+
+<script>
+    function updateFlag(postId, checked) {
+        fetch(`/posts/${postId}/flag`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ flag: checked })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Flag updated successfully.');
+            } else {
+                console.error('Failed to update flag.');
+            }
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+        });
+    }
+</script>
+
 
 @endsection

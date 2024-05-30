@@ -31,6 +31,7 @@
               <a href="{{ route('posts.mypage') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">マイページ</a>
               <a href="{{ route('posts.post') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">投稿する</a>
               <a href="{{ route('calender.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">カレンダー</a>
+              <a href="{{ route('task.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">未完了リスト一覧</a>
               
             </div>
           </div>
@@ -62,6 +63,7 @@
         <a href="{{ route('posts.mypage') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">マイページ</a>
         <a href="{{ route('posts.post')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">投稿する</a>
         <a href="{{ route('calender.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">カレンダー</a>
+        <a href="{{ route('task.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">未完了リスト一覧</a>
         
       </div>
       <div class="border-t border-gray-700 pb-3 pt-4">

@@ -19,6 +19,7 @@ class PostController extends Controller
     {
 
         $user = Auth::user();
+        
         $folders = Folder::all();
         return view('posts.post', compact('user', 'folders'));
     }
@@ -36,6 +37,8 @@ class PostController extends Controller
 
 
         ]);
+
+
         Posts::create([
             'user_id' => Auth::id(),
             'folder_id' => $request->folder_id,
@@ -45,6 +48,9 @@ class PostController extends Controller
             'flag' => (bool) $request->flag,
         ]);
         
+
+
+     
         
 
         return redirect()->route('posts.mypage')->with('success', 'レビューが作成されました');
@@ -66,6 +72,18 @@ class PostController extends Controller
         return view('posts.user' ,['post'=>$post]);
     }
 
+
+    public function updateFlag(Request $request, $id)
+    {
+        $post = Posts::find($id);
+        if ($post){
+            $post->flag = $request->input('flag', false);
+            $post->save();
+            return response()->json(['message' => 'Flag updated successfully.']);
+        }else {
+            return response()->json(['error' => 'Failed to update flag.'], 500);
+        }
+    }
     
 
 

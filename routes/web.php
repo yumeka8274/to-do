@@ -5,7 +5,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TaskListController;
 use App\Http\Controllers\Posts;
+use App\Http\Controllers\GoogleCalendarController;
 
 
 
@@ -54,6 +56,12 @@ Route::get('/folder/mypage',[App\Http\Controllers\MypageController::class,'index
 //投稿の詳細画面表示
 Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
 
+
+// Route::get('/posts/mypage/{id}', function() {
+//     // 保存した引数を付加してリダイレクトする
+//     return redirectWithRestoredParams("posts.show");
+// })->name('posts.show.back');
+
 //削除機能
 Route::delete('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'destroy'])->name('posts.destroy');
 Route::delete('/posts/folder/{id}',[App\Http\Controllers\FolderController::class,'destroy'])->name('folder.destroy');
@@ -80,3 +88,11 @@ Route::get('/calender', function () {
 })->name('calender.index');
 //カレンダーにtodoを追加するルート情報
 Route::get('/events', [EventController::class, 'index']);
+
+Route::get('google/redirect', [GoogleCalendarController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('google/callback', [GoogleCalendarController::class, 'handleGoogleCallback'])->name('google.callback');
+
+//チェックボックスの値の変更
+Route::patch('/posts/{id}/flag', [PostController::class, 'updateFlag'])->name('posts.updateFlag');
+
+Route::get('task/index', [TaskListController::class, 'index'])->name('task.index');

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Posts;
 use App\Models\Folder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Previous;
+use Illuminate\Http\Action;
+
+
 
 class FolderController extends Controller
 {
@@ -64,6 +68,17 @@ class FolderController extends Controller
         $user = Auth::user();
         $folder = Folder::with('posts')->find($id);
 
+    // public function show($id)
+    // $action = $request->get('action', 'back');
+    // $input = $request->except('action');
+
+    // if($action == 'back') {
+    //     return redirect()->route('folder.show');
+    // }
+
+    // public function back() {
+    //     return back()->with('folder.show');
+    // }
 
 
         return view('folder.edit',[ 'user' => $user, 'folder' => $folder ] );
