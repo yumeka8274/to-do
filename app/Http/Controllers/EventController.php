@@ -39,10 +39,10 @@ class EventController extends Controller
         foreach($posts as $post)
         {
             $events[] = [
-               'title' => $post->title,
-               'start' => $post->created_at->format('Y-m-d'),
-               'end' => $post->deadline,
-               'description' => $post->body,
+                'title' => $post->title,
+                'start' => $post->created_at->format('Y-m-d'),
+                'end' => $post->deadline,
+                'description' => $post->body,
             ];
         }
         return response()->json($events);

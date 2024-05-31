@@ -16,8 +16,8 @@
                 <div class="flex flex-col mb-10 lg:items-start items-center">
                 </div>
                 <div class="flex-grow">
-                    <h2 class="tracking-widest text-lg title-lg font-lg text-gray-400 mb-1">TITLE</h2>
-                    <h1 class="title-font text-5xl font-2xl text-gray-900 mb-3">{{ $post->title }}</h1>
+                    <h2 class="tracking-widest text-2lg title-lg font-2xl text-gray-400 mb-1">TITLE</h2>
+                    <h1 class="title-font text-2xl font-2xl text-gray-900 mb-3">{{ $post->title }}</h1>
                     
                         <div class="flex flex-col">
                             <h2 class="tracking-widest text-lg title-font font-lg text-gray-400 mb-1">本文</h2>

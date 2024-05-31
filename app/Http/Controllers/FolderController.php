@@ -58,7 +58,9 @@ class FolderController extends Controller
     public function destroy($id)
     {
         $folder = Folder::find($id);
+        $folder->posts()->delete();
         $folder -> delete();
+        
 
         return redirect()->route('posts.mypage');
     }
@@ -89,7 +91,7 @@ class FolderController extends Controller
     {
 
         $request->validate([
-           
+            
         ]);
     
         $folder = Folder::find($id);

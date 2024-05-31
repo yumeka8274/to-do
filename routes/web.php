@@ -55,6 +55,7 @@ Route::get('/folder/mypage',[App\Http\Controllers\MypageController::class,'index
 
 //投稿の詳細画面表示
 Route::get('/posts/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('posts.show');
+Route::get('/folder/mypage/{id}',[App\Http\Controllers\MypageController::class,'show'])->name('folder.show');
 
 
 // Route::get('/posts/mypage/{id}', function() {
