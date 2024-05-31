@@ -24,7 +24,7 @@ use App\Http\Controllers\GoogleCalendarController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.index');
 });
 
 Auth::routes();
